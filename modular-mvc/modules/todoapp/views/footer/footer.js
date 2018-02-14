@@ -64,6 +64,14 @@ let view = {
         $selected.removeClass('selected');
         $toSetSelected.addClass('selected');
     },
+
+    hideClearBtn: () => view.$clearBtn.hide(),
+
+    showClearBtn: () => view.$clearBtn.show(),
+
+    hide: () => view.$footer.hide(),
+
+    show: () => view.$footer.show()
 };
 
 // ----------------------------------------------------

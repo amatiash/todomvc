@@ -1,6 +1,5 @@
 'use strict';
 
-import 'j-cache';
 import $ from 'jquery';
 import JEves from 'jeves';
 import model from './model';
@@ -24,7 +23,7 @@ let controller = {
         // ----------------------------------------------------
 
         let $wrap = $('<section class="todoapp"></section>');
-        $body.append($wrap);
+        $(document.body).append($wrap);
 
         // ----------------------------------------------------
 
@@ -68,9 +67,32 @@ let controller = {
 
         // ----------------------------------------------------
 
-        listView.render(todos);
-        footerView.setActiveFilter(hashVal);
-        footerView.setCounter(controller.getItemsLeft());
+        if(model.todos.length){
+            listView.show();
+            footerView.show();
+
+            // ----------------------------------------------------
+
+            listView.render(todos);
+            footerView.setActiveFilter(hashVal);
+            footerView.setCounter(controller.getItemsLeft());
+
+            // ----------------------------------------------------
+
+            let completedLength = todos.filter((todo) => todo.completed).length;
+
+            if(completedLength)
+                footerView.showClearBtn();
+            else
+                footerView.hideClearBtn();
+
+        } else {
+            listView.hide();
+            footerView.hide();
+        }
+
+        // ----------------------------------------------------
+
         model.writeTodos();
     },
 
@@ -126,8 +148,6 @@ let controller = {
         model.todos = model.todos.filter((todo) => !todo.completed);
         controller.render();
     }
-
-    // ----------------------------------------------------
 };
 
 // ----------------------------------------------------

@@ -1,6 +1,5 @@
 'use strict';
 
-import 'j-cache';
 import $ from 'jquery';
 import JEves from 'jeves'
 import template from './list-item.pug';
@@ -47,7 +46,7 @@ export default class ListItem {
         this.$item.addClass('editing');
         this.$input.focus();
 
-        $doc.on('keyup.inputEdit', (e) => this._onEditKeyPress(e));
+        $(document).on('keyup.inputEdit', (e) => this._onEditKeyPress(e));
         this.$input.on('blur', () => this._onEditFinish())
     }
 
@@ -59,7 +58,7 @@ export default class ListItem {
         this.$item.removeClass('editing');
 
         // Remove key press event
-        $doc.off('.inputEdit');
+        $(document).off('.inputEdit');
 
         // ----------------------------------------------------
 

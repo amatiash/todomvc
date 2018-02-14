@@ -33,24 +33,28 @@ let view = {
     },
 
     render: (todos) =>{
+        if(!todos.length)
+            return view.hide();
+
+        let isAllCompleted = todos.every((todo) => todo.completed);
+
         view.$ul.empty();
+        view.$toggle.prop('checked', isAllCompleted);
 
-        if(todos.length){
-            todos.forEach((todo) =>{
-                let listItem = new ListItem(todo);
-                view.$ul.append(listItem.$item);
+        todos.forEach((todo) =>{
+            let listItem = new ListItem(todo);
+            view.$ul.append(listItem.$item);
 
-                listItem.on('checked', () => eve.trigger('setCompleted', {id: todo.id}));
-                listItem.on('unchecked', () => eve.trigger('setUncompleted', {id: todo.id}));
-                listItem.on('delete', () => eve.trigger('itemDelete', {id: todo.id}));
-                listItem.on('change', (e, value) => eve.trigger('titleChange', {id: todo.id, title: value}));
-            });
-            view.$list.show();
-        }
-        else
-            view.$list.hide();
-
+            listItem.on('checked', () => eve.trigger('setCompleted', {id: todo.id}));
+            listItem.on('unchecked', () => eve.trigger('setUncompleted', {id: todo.id}));
+            listItem.on('delete', () => eve.trigger('itemDelete', {id: todo.id}));
+            listItem.on('change', (e, value) => eve.trigger('titleChange', {id: todo.id, title: value}));
+        });
     },
+
+    hide: () => view.$list.hide(),
+
+    show: () => view.$list.show()
 };
 
 // ----------------------------------------------------

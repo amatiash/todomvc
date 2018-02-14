@@ -1,6 +1,5 @@
 'use strict';
 
-import 'j-cache';
 import $ from 'jquery';
 import template from './header.pug';
 
@@ -31,9 +30,9 @@ let view = {
         $wrap.append(view.$header);
     },
 
-    onInputFocus: () => $doc.on('keyup.newTodoInputEdit', view.handleKeyPress),
+    onInputFocus: () => $(document).on('keyup.newTodoInputEdit', view.handleKeyPress),
 
-    onInputBlur: () => $doc.off('keyup.newTodoInputEdit'),
+    onInputBlur: () => $(document).off('keyup.newTodoInputEdit'),
 
     handleKeyPress: (e) =>{
         if(e.keyCode === ENTER){

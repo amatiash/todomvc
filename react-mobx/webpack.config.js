@@ -3,7 +3,7 @@ let webpack = require('webpack'),
 
 module.exports = {
 	watch: true,
-	devtool: 'source-map',
+    devtool: 'source-map',
     entry  : {
         main: './js/entry/main.js'
     },
@@ -15,6 +15,7 @@ module.exports = {
     },
     resolve: {
         modules: [
+            path.join(__dirname, '/components'),
             path.join(__dirname, '/modules'),
             'node_modules'
         ]

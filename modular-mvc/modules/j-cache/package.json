@@ -1,8 +1,0 @@
-{
-  "name": "j-cache",
-  "version": "1.0.0",
-  "main": "j-cache.js",
-  "dependencies": {
-    "jquery": "x.x.x"
-  }
-}

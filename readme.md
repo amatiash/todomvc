@@ -1,5 +1,3 @@
 # todomvc
 
-Modular MVC, React Flux, React Redux, React MobX implementation
-
-
+jQuery Modular MVC vs React MobX implementation
