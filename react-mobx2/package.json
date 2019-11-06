@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server --hot",
+    "build": "NODE_ENV=production node_modules/.bin/webpack -p",
+    "lint": "node_modules/.bin/eslint js/entry/** components/** --ext .js"
+  },
+  "dependencies": {
+    "mobx": "^5.14.2",
+    "mobx-react": "^6.1.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "todomvc-app-css": "^2.3.0",
+    "todomvc-common": "^1.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-decorators": "^7.7.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@typescript-eslint/eslint-plugin": "^2.6.1",
+    "@typescript-eslint/parser": "^2.6.1",
+    "autoprefixer": "^9.7.1",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-react": "^7.16.0",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "optionalDependencies": {
+    "eslint-config-paper": "git+ssh://git@gitlab.com/paper-ai/eslint-config-paper.git#semver:0.4.x"
+  }
+}

@@ -12,3 +12,13 @@ node_modules
 
 # JetBrains
 .idea
+**/.idea
+!**/.idea/encodings.xml
+!**/.idea/jsLibraryMappings.xml
+!**/.idea/misc.xml
+!**/.idea/inspectionProfiles
+!**/.idea/webResources.xml
+!**/.idea/codeStyles
+!**/.idea/dictionaries
+
+
